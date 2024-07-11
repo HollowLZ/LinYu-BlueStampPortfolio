@@ -1,11 +1,5 @@
 # Ball Tracking Robot
-Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
-
-You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
-```HTML 
-<!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site -->
-```
+The main purpose of this robot is as the name suggest to track a ball that the robot sees. While this might have seemed simple, I had to no clue what I was getting myself into. I encounter more bumbs and setbacks in this one month journey than in my entire year of school. Subsequently, this month had just as many triumphs. Follow along to see how my engineering endeavor played out.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
@@ -43,15 +37,9 @@ For your second milestone, explain what you've worked on since your previous mil
 
 # First Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Mhk0i07Dayw?si=X08mbKZW4ChSZC8N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
+While many of peers had their first milestone done by the first week, It took me much into my second week to finish my first milestone. This first milestone consisted of a working ultrasonic sensor, camera, four directions of motion via motors, amd a lot of heaaches. From day 1 my raspberrypi was giving me trouble and rejecting connecting. I eventually got around this obstacle by learning how to connect the raspberrypi through a serial connection, which allowed me to code on the raspberrypi through my computer's terminal. After much time and headaches, I finally had my first milestone completed.
 
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 

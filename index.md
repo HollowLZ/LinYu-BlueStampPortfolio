@@ -3,7 +3,7 @@ The main purpose of this robot is as the name suggest to track a ball that the r
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Lin Yu Z. | University Neighborhood High School | Computer Science/Mechanical Engineering | Incoming Senior
+| Lin Yu Z. | University Neighborhood High School | Computer Science/Mechanical Engineering | Class of 2025
 
 **Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 

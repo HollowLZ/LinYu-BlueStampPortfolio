@@ -15,13 +15,7 @@ The main purpose of this robot is as the name suggest to track a ball that the r
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
-
-
+FInally, after 3 weeks of blood sweat and tears, the robot was inally done. It effectively uses the camera to detect the ball, then sends the directions to the motors to move the robot to the ball. I had my fair share of ups and downs. I had trouble with my raspberry-pi, the wiring of ultrasonic sensors, and even the image processing was being weird. However, there were equal amounts of wins. I learned to code through the serial to get around the raspberry-pi problem and I figured out that all these problems that all required a simple fix. Whether it was missing a delay or a miswire. Throughout my time here at BlueStamp I truly learn so much. To persevere through adversity, to never give up, and to believe in myself. These lessons that I take from BlueStamp are priceless.
 
 # Second Milestone
 

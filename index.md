@@ -8,14 +8,13 @@ The main purpose of this robot is as the name suggest to track a ball that the r
 **Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](logo.svg)
-  
-# Final Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# First Milestone
 
-FInally, after 3 weeks of blood sweat and tears, the robot was inally done. It effectively uses the camera to detect the ball, then sends the directions to the motors to move the robot to the ball. I had my fair share of ups and downs. I had trouble with my raspberry-pi, the wiring of ultrasonic sensors, and even the image processing was being weird. However, there were equal amounts of wins. I learned to code through the serial to get around the raspberry-pi problem and I figured out that all these problems that all required a simple fix. Whether it was missing a delay or a miswire. Throughout my time here at BlueStamp I truly learn so much. To persevere through adversity, to never give up, and to believe in myself. These lessons that I take from BlueStamp are priceless.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Mhk0i07Dayw?si=X08mbKZW4ChSZC8N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+While many of peers had their first milestone done by the first week, It took me much into my second week to finish my first milestone. This first milestone consisted of a working ultrasonic sensor, camera, four directions of motion via motors, amd a lot of headches. From day 1, my raspberrypi was giving me trouble and rejecting connecting. I eventually got around this obstacle by learning how to connect the raspberrypi through a serial connection, which allowed me to code on the raspberrypi through my computer's terminal. After much time and headaches, I had finally completed my first milestone.
 
 # Second Milestone
 
@@ -23,11 +22,13 @@ FInally, after 3 weeks of blood sweat and tears, the robot was inally done. It e
 
 My main goal for the second milestone was to finish the image processing software. This software would allow the pi-camera to take in a live feed, the raspberry pi would take in that live feed and add a mask over it. This would allow for the robot to only see the red ball in the video feed. This was surprisingly hard since I had to figure out the color spectrum that the pi-camera uses, finding the color color range that would allow me to properly highlight the red ball. Additionally, using this image processing I was also able to locate and find the size of ball with respect to the camera. This was the final step I needed to start navigating the robot to the ball.
 
-# First Milestone
+# Final Milestone
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Mhk0i07Dayw?si=X08mbKZW4ChSZC8N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-While many of peers had their first milestone done by the first week, It took me much into my second week to finish my first milestone. This first milestone consisted of a working ultrasonic sensor, camera, four directions of motion via motors, amd a lot of headches. From day 1, my raspberrypi was giving me trouble and rejecting connecting. I eventually got around this obstacle by learning how to connect the raspberrypi through a serial connection, which allowed me to code on the raspberrypi through my computer's terminal. After much time and headaches, I had finally completed my first milestone.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+FInally, after 3 weeks of blood sweat and tears, the robot was inally done. It effectively uses the camera to detect the ball, then sends the directions to the motors to move the robot to the ball. I had my fair share of ups and downs. I had trouble with my raspberry-pi, the wiring of ultrasonic sensors, and even the image processing was being weird. However, there were equal amounts of wins. I learned to code through the serial to get around the raspberry-pi problem and I figured out that all these problems that all required a simple fix. Whether it was missing a delay or a miswire. Throughout my time here at BlueStamp I truly learn so much. To persevere through adversity, to never give up, and to believe in myself. These lessons that I take from BlueStamp are priceless.
 
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 

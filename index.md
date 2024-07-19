@@ -32,19 +32,161 @@ FInally, after 3 weeks of blood sweat and tears, the robot was inally done. It e
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```python
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
-}
+import cv2 #OpenCV
+from picamera2 import Picamera2, Preview
+import RPi.GPIO as gpio
+from gpiozero import DistanceSensor
+import time
+import numpy as np
 
-void loop() {
-  // put your main code here, to run repeatedly:
 
-}
+def ultrasonic1():
+    ultrasonic = DistanceSensor(echo=24, trigger=23)
+    return(ultrasonic.distance*100)
+        
+def ultrasonic2():
+    ultrasonic = DistanceSensor(echo=9,trigger=10)
+    return(ultrasonic.distance*100)
+        
+def ultrasonic3():
+    ultrasonic = DistanceSensor(echo=21,trigger=20)
+    return(ultrasonic.distance*100)
+    
+def init():
+    gpio.setmode(gpio.BCM)
+    gpio.setup(17,gpio.OUT)
+    gpio.setup(22,gpio.OUT)
+    gpio.setup(6,gpio.OUT)
+    gpio.setup(5,gpio.OUT)
+    
+def forward(sec):
+    init()
+    gpio.output(17, True)
+    gpio.output(22, False)
+    gpio.output(6, True)
+    gpio.output(5, False)
+    time.sleep(sec)
+    gpio.cleanup()
+    
+def reverse(sec):
+    init()
+    gpio.output(17, False)
+    gpio.output(22, True)
+    gpio.output(6, False)
+    gpio.output(5, True)
+    time.sleep(sec)
+    gpio.cleanup()
+    
+def left(sec):
+    init()
+    gpio.output(17, True)
+    gpio.output(22, False)
+    gpio.output(6, False)
+    gpio.output(5, True)
+    time.sleep(sec)
+    gpio.cleanup()
+    
+def right(sec):
+    init()
+    gpio.output(17, False)
+    gpio.output(22, True)
+    gpio.output(6, True)
+    gpio.output(5, False)
+    time.sleep(sec)
+    gpio.cleanup()
+    
+def stop():
+    init()
+    gpio.output(17, False)
+    gpio.output(22, False)
+    gpio.output(6, False)
+    gpio.output(5, False)
+    time.sleep(1)
+
+def segment_colour(frame):
+
+    hsv_roi =  cv2.cvtColor(frame, cv2.COLOR_RGB2HSV)
+    #cv2.imshow("Test2", hsv_roi)
+    
+    mask_1 = cv2.inRange(hsv_roi, np.array([155, 190,1]), np.array([190,255,255])) 
+    
+    #cv2.imshow("Mask1", mask_1)
+    
+    mask = mask_1
+    #cv2.imshow("MaskPre", mask)
+    kern_dilate = np.ones((12,12),np.uint8)
+    kern_erode  = np.ones((10,10),np.uint8)
+    mask= cv2.erode(mask, kern_erode)
+    mask= cv2.dilate(mask, kern_erode)
+    mask= cv2.dilate(mask, kern_dilate)
+    mask= cv2.dilate(mask, kern_dilate)
+    #cv2.imshow("MaskPost", mask)
+
+    return mask
+
+def find_blob(blob):  
+    largest_contour=0
+    cont_index=0
+    contours, hierarchy = cv2.findContours(blob, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+    for idx, contour in enumerate(contours):
+        area=cv2.contourArea(contour)
+        if (area >largest_contour):
+            largest_contour=area
+            cont_index=idx
+                    
+    r=(0,0,2,2)
+    if len(contours) > 0:
+        r = cv2.boundingRect(contours[cont_index])
+     
+    return r,largest_contour 
+
+picam2 = Picamera2()
+camera_config = picam2.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (480, 270)}, display="lores")
+
+picam2.configure(camera_config)
+#picam2.start_preview(Preview.QTGL)  
+picam2.start()
+
+time.sleep(2) 
+
+while(True):
+    print(ultrasonic2())
+
+    im = picam2.capture_array()
+    height = im.shape[0]
+    width = im.shape[1]
+    
+#fucntion 1 segment_colour
+    mask_red = segment_colour(im)
+    mask_red = mask_red.astype(np.uint8)
+    cv2.imshow("Testy", mask_red)
+    cv2.waitKey(1)
+    #cv2. imwrite("test.png", mask_red)
+
+#fucntion 2 find_blob
+ #   loct,area = ____  # fill this in 
+  #  x,y,w,h=loct
+    loct,area = find_blob(mask_red)
+    print(area)
+    
+    if ((((loct[0]+loct[2])<1450) and ((loct[0]+(loct[2]/2))>450)) or (area>800000)):
+        if (area<800000):
+            forward(.75)
+            print("Moving Forward")
+        else:
+            print("Ball Found")
+            stop()
+            break
+    elif ((loct[0]+loct[2])>1000):
+        right(.3)
+        stop()
+        print("Turning Right")
+    elif ((loct[0]+(loct[2]/2))<700):
+        left(.15)
+        stop()
+        print("Turning Left")
 ```
 
 # Bill of Materials

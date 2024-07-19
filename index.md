@@ -163,11 +163,8 @@ while(True):
     mask_red = mask_red.astype(np.uint8)
     cv2.imshow("Testy", mask_red)
     cv2.waitKey(1)
-    #cv2. imwrite("test.png", mask_red)
 
 #fucntion 2 find_blob
- #   loct,area = ____  # fill this in 
-  #  x,y,w,h=loct
     loct,area = find_blob(mask_red)
     print(area)
     

@@ -112,7 +112,6 @@ def segment_colour(frame):
     mask_1 = cv2.inRange(hsv_roi, np.array([155, 190,1]), np.array([190,255,255])) 
     
     mask = mask_1
-    #cv2.imshow("MaskPre", mask)
     kern_dilate = np.ones((12,12),np.uint8)
     kern_erode  = np.ones((10,10),np.uint8)
     mask= cv2.erode(mask, kern_erode)

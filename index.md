@@ -108,11 +108,8 @@ def stop():
 def segment_colour(frame):
 
     hsv_roi =  cv2.cvtColor(frame, cv2.COLOR_RGB2HSV)
-    #cv2.imshow("Test2", hsv_roi)
     
     mask_1 = cv2.inRange(hsv_roi, np.array([155, 190,1]), np.array([190,255,255])) 
-    
-    #cv2.imshow("Mask1", mask_1)
     
     mask = mask_1
     #cv2.imshow("MaskPre", mask)
@@ -122,7 +119,6 @@ def segment_colour(frame):
     mask= cv2.dilate(mask, kern_erode)
     mask= cv2.dilate(mask, kern_dilate)
     mask= cv2.dilate(mask, kern_dilate)
-    #cv2.imshow("MaskPost", mask)
 
     return mask
 
@@ -146,7 +142,6 @@ picam2 = Picamera2()
 camera_config = picam2.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (480, 270)}, display="lores")
 
 picam2.configure(camera_config)
-#picam2.start_preview(Preview.QTGL)  
 picam2.start()
 
 time.sleep(2) 
